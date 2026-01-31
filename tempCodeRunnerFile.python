@@ -1,0 +1,18 @@
+import matplotlib.pyplot as plt
+
+# Example data – replace with your own
+actual_prices = [120000, 250000, 350000, 450000, 550000, 150000, 170000, 320000, 400000, 500000]
+predicted_prices = [130000, 240000, 370000, 430000, 560000, 160000, 140000, 350000, 410000, 480000]
+
+plt.figure(figsize=(7,5))
+plt.scatter(actual_prices, predicted_prices, color='deepskyblue', alpha=0.7, label='Predicted vs Actual')
+plt.plot([min(actual_prices), max(actual_prices)], [min(actual_prices), max(actual_prices)], 
+         'r--', label='Perfect Prediction')
+plt.xlabel('Actual Price', fontsize=14)
+plt.ylabel('Predicted Price', fontsize=14)
+plt.title('Actual vs. Predicted House Prices', fontsize=16)
+plt.grid(True, alpha=0.3)
+plt.legend(loc='upper left', fontsize=12)
+plt.tight_layout()
+plt.savefig('corrected_actual_vs_predicted.png')
+plt.show()

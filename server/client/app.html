@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DreamHome Price Predictor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="app.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <!-- Background Image -->
+    <div class="background-image">
+        <img src="belair.jpg" alt="House Background">
+    </div>
+    
+    <!-- Subtle animated background -->
+    <div class="background-overlay"></div>
+
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 12L5 10M5 10L12 3L19 10M5 10V20C5 20.5523 5.44772 21 6 21H9M19 10L21 12M19 10V20C19 20.5523 18.5523 21 18 21H15M9 21C9.55228 21 10 20.5523 10 20V16C10 15.4477 10.4477 15 11 15H13C13.5523 15 14 15.4477 14 16V20C14 20.5523 14.4477 21 15 21M9 21H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>DreamHome</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="main-wrapper">
+        <header class="page-header">
+            <h1>DreamHome Price Predictor</h1>
+            <p>Get accurate property valuations instantly</p>
+        </header>
+
+        <main class="container">
+            <form id="predictionForm" class="form" onsubmit="return false;">
+                <div class="form-grid">
+                    <!-- Left Column -->
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="uiSqft" class="label">Area (Square Feet)</label>
+                            <input type="number" id="uiSqft" name="Squareft" class="input" min="100" value="1000" required placeholder="Enter area" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="label">BHK</label>
+                            <div class="switch-field">
+                                <input type="radio" id="radio-bhk-1" name="uiBHK" value="1" />
+                                <label for="radio-bhk-1">1</label>
+                                <input type="radio" id="radio-bhk-2" name="uiBHK" value="2" checked />
+                                <label for="radio-bhk-2">2</label>
+                                <input type="radio" id="radio-bhk-3" name="uiBHK" value="3" />
+                                <label for="radio-bhk-3">3</label>
+                                <input type="radio" id="radio-bhk-4" name="uiBHK" value="4" />
+                                <label for="radio-bhk-4">4</label>
+                                <input type="radio" id="radio-bhk-5" name="uiBHK" value="5" />
+                                <label for="radio-bhk-5">5</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="uiLocations" class="label">Location</label>
+                            <select id="uiLocations" class="select" required>
+                                <option value="" disabled selected>Choose a Location</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="label">Bathrooms</label>
+                            <div class="switch-field">
+                                <input type="radio" id="radio-bath-1" name="uiBathrooms" value="1" />
+                                <label for="radio-bath-1">1</label>
+                                <input type="radio" id="radio-bath-2" name="uiBathrooms" value="2" checked />
+                                <label for="radio-bath-2">2</label>
+                                <input type="radio" id="radio-bath-3" name="uiBathrooms" value="3" />
+                                <label for="radio-bath-3">3</label>
+                                <input type="radio" id="radio-bath-4" name="uiBathrooms" value="4" />
+                                <label for="radio-bath-4">4</label>
+                                <input type="radio" id="radio-bath-5" name="uiBathrooms" value="5" />
+                                <label for="radio-bath-5">5</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="submit" type="button" onclick="onClickedEstimatePrice()">
+                    <span>Estimate Price</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+
+                <div id="uiEstimatedPrice" class="result"></div>
+            </form>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>DreamHome</h3>
+                        <p>Your trusted partner in property valuation and real estate insights.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li>Email: likhithreddy@gmail.com</li>
+                            <li>Phone: 8790600989</li>
+                            <li>Location: Chennai, India</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p> 2025 DreamHome. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
